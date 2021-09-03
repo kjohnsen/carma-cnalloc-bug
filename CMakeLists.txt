@@ -1,0 +1,13 @@
+project(pybind-arma-bug)
+cmake_minimum_required(VERSION 3.20.0)
+
+add_library(mc SHARED mat_container.cpp)
+find_package(Python3 COMPONENTS Interpreter Development)
+add_subdirectory(pybind11)
+pybind11_add_module(pymod MODULE pymod.cpp)
+find_package(Armadillo "10" CONFIG REQUIRED)
+set(ARMA_USE_HDF5 OFF)
+set(ARMA_USE_HDF5_ALT OFF)
+set(DETECT_HDF5 ON)
+include_directories(${ARMADILLO_INCLUDE_DIRS})
+target_link_libraries(pymod PUBLIC ${ARMADILLO_LIBRARIES})
