@@ -8,6 +8,8 @@ def test_DMC():
     DynamicMC(100, True)  # large vector doesn't crash
     DynamicMC(2, False)  # small Matrix doesn't crash
     print("worked up to here, but should crash before displaying `DMC success`")
-    DynamicMC(100, False)  # large Matrix does: you won't see success here
+    DynamicMC(100, False)  # large Matrix crashes: you won't see success here
     print("DMC success")
 
+test_SMC()
+test_DMC()

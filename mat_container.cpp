@@ -9,3 +9,7 @@ DynamicMatrixContainer::DynamicMatrixContainer(std::size_t d, bool stdvec_instea
         std::cerr << "filled std::vector\n";
     }
 }
+
+void DynamicMatrixContainer::swapA(size_t d) {
+    A = arma::Mat<double>(d, d, arma::fill::ones);
+}
