@@ -1,17 +1,15 @@
 // #include <iostream>  // <-- only needed to use std::?
 #include <armadillo>
 
-class DynamicMatrixContainer {
+class CompiledMatrixContainer {
  public:
-  DynamicMatrixContainer(size_t d, bool vec_not_mat = false);
-  void swapA(size_t d);
+  CompiledMatrixContainer(size_t d);
   arma::Mat<double> A;
-  std::vector<double> stdvec;
 };
 
-class StaticMatrixContainer {
+class HeaderMatrixContainer {
  public:
-  StaticMatrixContainer(size_t d) {
+  HeaderMatrixContainer(size_t d) {
     A = arma::Mat<double>(d, d, arma::fill::ones);
   }
   arma::Mat<double> A;

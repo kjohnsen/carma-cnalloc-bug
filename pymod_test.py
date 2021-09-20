@@ -1,15 +1,19 @@
-from pymod import StaticMC, DynamicMC
+from build.pymod import HeaderMC, CompiledMC, LocalMC
 
-def test_SMC():
-    StaticMC(100)
-    print("SMC success")
+def test_LMC():
+    LocalMC(100)
+    print("LMC success")
 
-def test_DMC():
-    DynamicMC(100, True)  # large vector doesn't crash
-    DynamicMC(2, False)  # small Matrix doesn't crash
+def test_HMC():
+    HeaderMC(100)
+    print("HMC success")
+
+def test_CMC():
+    CompiledMC(2)  # small Matrix doesn't crash
     print("worked up to here, but should crash before displaying `DMC success`")
-    DynamicMC(100, False)  # large Matrix crashes: you won't see success here
-    print("DMC success")
+    CompiledMC(100)  # large Matrix crashes
+    print("CMC success")
 
-test_SMC()
-test_DMC()
+test_LMC()
+test_HMC()
+test_CMC()
