@@ -1,5 +1,8 @@
 # `cnalloc.h` bug MRE
 
+## RESOLVED!
+The key was to link carma to the external library at compile time to avoid the memory allocation function mismatch. See https://github.com/RUrlus/carma/issues/89.
+
 To reproduce:
 ```bash
 cmake -S . -B build
